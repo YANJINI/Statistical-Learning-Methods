@@ -1,5 +1,5 @@
 # Statistical-Learning-Methods
-What I have learned from the course "Statistical Learning Methods" in Warsaw School of Economics during 2023/spring semester.
+What I have learned from the course "Statistical Learning Methods" in Warsaw School of Economics during 2023-spring semester.
 
 <br />
 
