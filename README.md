@@ -32,6 +32,7 @@ $\hat{\beta}$: estimated coefficient for $X$
 $X$ and $e$ are $iid$ from a standard Gaussian so, $Var(Y)$ is simply $2$. Since we are using the right specification for the true model, $Y-\hat{Y} \simeq e$ and MSE is just around $Var(e)$, which is $1$. So, the true $R^{2}$ should be around $1 - 1/2 = 0.5$.
 
 ![images/simple_regression_r2_convergence](images/simple_regression_r2_convergence.png)
+The blue line and orange line are the 95% quantile line and the 5% quantile line at each sample size respectively, and the dots in the middle are mean of the simulated R-squared at each sample size.
 
 **R-squared from a multiple linear model**
 
