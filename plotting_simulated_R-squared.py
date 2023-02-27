@@ -52,7 +52,7 @@ def _simple_linear_regression_r2(n):
     #   n pairs of variables from a standard Gaussian distribution.
 
     X = np.random.randn(n)
-    Y = 1 + x + np.random.randn(n)
+    Y = 1 + X + np.random.randn(n)
     df = pd.DataFrame({'X': X, 'Y': Y})
     model = sm.OLS(df['Y'], sm.add_constant(df['X'])).fit() # simple linear regression
 
@@ -79,19 +79,16 @@ def _multiple_linear_regression_r2(n, k=9):
 
 
 if __name__ == "__main__":
-    # Simple
     n_sizes = np.arange(10, 201, 10)
     reps = 1000
 
+    # Simple
     time0 = time.time()
     plot_r2_simulation(n_sizes=n_sizes, n_simulations=reps, model=_simple_linear_regression_r2)
     time1 = time.time()
     print(f"It took {round(time1 - time0, 2)} seconds")
 
     # Multiple
-    n_sizes = np.arange(10, 201, 10)
-    reps = 1000
-
     time0 = time.time()
     plot_r2_simulation(n_sizes=n_sizes, n_simulations=reps, model=_multiple_linear_regression_r2)
     time1 = time.time()
