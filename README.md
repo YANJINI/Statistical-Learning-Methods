@@ -1,6 +1,8 @@
 # Statistical-Learning-Methods
 What I have learned from the course "Statistical Learning Methods" in Warsaw School of Economics.
 
+<br />
+
 ## 1. Plotting simulated R-squared (2/27)
 File name: _plotting_simulated_R-squared.py_ <br />
 A homework for the very beginning of the course in which I had to write a Python code to plot a simulated R-squared at each sample size.
@@ -13,6 +15,8 @@ $\hat{Y}$: predicted value for $Y$ by model <br />
 $\overline{Y}$: average of $Y$ over $n$ observations <br />
 $MSE$: mean of squared error, $SSE/n$ <br />
 $Var(Y)$: variance of Y 
+
+<br />
 
 **R-squared from a simple linear model**
 
@@ -34,6 +38,8 @@ $X$ and $e$ are $iid$ from a standard Gaussian so, $Var(Y)$ is simply $2$. Since
 ![images/simple_regression_r2_convergence](images/simple_regression_r2_convergence.png)
 
 The blue line and orange line are the 95% quantile line and the 5% quantile line at each sample size respectively, and the dots in the middle are mean of the simulated R-squared at each sample size.
+
+<br />
 
 **R-squared from a multiple linear model**
 
