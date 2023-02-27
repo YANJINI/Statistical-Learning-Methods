@@ -22,6 +22,7 @@ $Y$: response variable <br />
 $X$: independent variable following a standard Gaussian, $N(0, 1)$ <br />
 $e$: error term following a standard Gaussain, $N(0, 1)$
 
+Since $X$ and $e$ are iid from a standard Gaussian, $Var(Y)$ is simply $2$ and $MSE$ is $1$, which returns the true R-squared of $0.5$.
 
 ![images/simple_regression_r2_convergence](images/simple_regression_r2_convergence.png)
 
