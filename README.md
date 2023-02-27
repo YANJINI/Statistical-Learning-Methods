@@ -44,4 +44,4 @@ The number of independent variables is 9, so we have 10 parameters to estimate. 
 
 ![images/multiple_regression_r2_convergence](images/multiple_regression_r2_convergence.png)
 
-One fun fact on the chart is that there are no error bounds when the sample size is equal to the number of parameters to be estimated (in this case, 10), since we can find the unique solution for the linear system of $Y=X\beta$. It is because $X$ is a square matrix with full rank. 
+One fun fact on the chart is that there are no error bounds when the sample size is equal to the number of parameters to be estimated (in this case, 10). It is because we can find the unique solution for the linear system of $Y=X\beta$, since $X$ is a square matrix with full rank in this special case. In other words, we can take a linear combination of the columns of $X$ to exactly represent $Y$. 
