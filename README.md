@@ -2,7 +2,7 @@
 What I have learned from the course "Statistical Learning Methods" in Warsaw School of Economics.
 
 ## 1. Plotting simulated R-squared
-File name: "plotting_simulated_R-squared.py" <br />
+File name: _plotting_simulated_R-squared.py_ <br />
 A homework for the very beginning of the course in which I had to write a Python code to plot a simulated R-squared at each sample size.
 
 ---
