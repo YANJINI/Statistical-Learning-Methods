@@ -40,6 +40,6 @@ Y = 1 + X_{1} + ... + X_{10} + e\\
 \hat{Y} = \hat{\alpha} + \hat{\beta_{1}}X_{1} + ... + \hat{\beta_{1}}X_{9}
 \end{gather} \tag{3}$$
 
-The number of variables is 9, so we have 10 parameters to estimate. All of the independent variables, $X_{1}, ..., X_{9}$ and $e$ are $iid$ from a standard Gaussian so, $Var(Y)$ here is $10$. Here the second model well specifies the true model, $Y-\hat{Y} \simeq e$ and MSE is just around $Var(e)$, which is $1$. So the true $R^{2}$ should be around $1 - 1/10 = 0.9$.
+The number of independent variables is 9, so we have 10 parameters to estimate. All of the independent variables, $X_{1}, ..., X_{9}$ and $e$ are $iid$ from a standard Gaussian so, $Var(Y)$ here is $10$. Here the second model well specifies the true model, $Y-\hat{Y} \simeq e$ and MSE is just around $Var(e)$, which is $1$. So the true $R^{2}$ should be around $1 - 1/10 = 0.9$.
 
 ![images/multiple_regression_r2_convergence](images/multiple_regression_r2_convergence.png)
