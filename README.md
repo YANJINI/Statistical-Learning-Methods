@@ -35,6 +35,12 @@ $\hat{\beta}$: estimated coefficient for $X$
 
 $X$ and $e$ are $iid$ from a standard Gaussian so, $Var(Y)$ is simply $2$. Since we are using the right specification for the true model, $Y-\hat{Y} \simeq e$ and MSE is just around $Var(e)$, which is $1$. So, the true $R^{2}$ should be around $1 - 1/2 = 0.5$.
 
+```py
+n_sizes = np.arange(10, 201, 10)
+reps = 1000
+plot_r2_simulation(n_sizes=n_sizes, n_simulations=reps, k=1)
+```
+
 ![images/simple_regression_r2_convergence](images/simple_regression_r2_convergence.png)
 
 The blue line and orange line are the 95% quantile line and the 5% quantile line at each sample size respectively, and the dots in the middle are mean of the simulated R-squared at each sample size.
@@ -49,6 +55,10 @@ Y = 1 + X_{1} + ... + X_{10} + e\\
 \end{gather} \tag{3}$$
 
 The number of independent variables is 9, so we have 10 parameters to estimate. All of the independent variables, $X_{1}, ..., X_{9}$ and $e$ are $iid$ from a standard Gaussian so, $Var(Y)$ here is $10$. Here the second model well specifies the true model, $Y-\hat{Y} \simeq e$ and MSE is just around $Var(e)$, which is $1$. So the true $R^{2}$ should be around $1 - 1/10 = 0.9$.
+
+```py
+plot_r2_simulation(n_sizes=n_sizes, n_simulations=reps, k=9)
+```
 
 ![images/multiple_regression_r2_convergence](images/multiple_regression_r2_convergence.png)
 
