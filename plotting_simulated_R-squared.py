@@ -5,12 +5,13 @@ import statsmodels.api as sm
 import time
 
 
-def plot_r2_simulation(n_sizes, n_simulations, model):
+def plot_r2_simulation(n_sizes, n_simulations, k):
     # Plot the mean and confidence intervals of the simulated sample R-squared.
     #
     # Args:
     #   n_sizes: list or array including different sample sizes
     #   n_simulations: integer representing the number of simulations
+    #   k: the number of independent variables
     #
     # Returns:
     #   Chart of the simulated R-squared (mean and confidence intervals at each n_sizes)
@@ -21,7 +22,7 @@ def plot_r2_simulation(n_sizes, n_simulations, model):
 
     for s in n_sizes:
         print(s)
-        simulated_r2 = [model(n=s) for _ in range(n_simulations)]
+        simulated_r2 = [_r2_linear_regression(n=s, k=k) for _ in range(n_simulations)]
         r2_q95.append(np.quantile(simulated_r2, .95))
         r2_q05.append(np.quantile(simulated_r2, .05))
         r2_mean.append(np.mean(simulated_r2))
@@ -33,7 +34,7 @@ def plot_r2_simulation(n_sizes, n_simulations, model):
     plt.xlabel("Sample size")
     plt.ylabel("Estimated R-squared with its confidence interval")
 
-    if model.__name__ == "_simple_linear_regression_r2":
+    if k==1:
         plt.savefig("images/simple_regression_r2_convergence.png")
     else:
         plt.savefig("images/multiple_regression_r2_convergence.png")
@@ -41,24 +42,7 @@ def plot_r2_simulation(n_sizes, n_simulations, model):
     plt.show()
 
 
-def _simple_linear_regression_r2(n):
-    # Computes the sample R-squared from a simple linear regression with sample size of n.
-    #
-    # Args:
-    #   n: integer representing the size of sample.
-    #
-    # Returns:
-    #   An integer representing the sample R-squared from a simple linear regression with randomly generated
-    #   n pairs of variables from a standard Gaussian distribution.
-
-    X = np.random.randn(n)
-    Y = 1 + X + np.random.randn(n)
-    df = pd.DataFrame({'X': X, 'Y': Y})
-    model = sm.OLS(df['Y'], sm.add_constant(df['X'])).fit() # simple linear regression
-
-    return model.rsquared
-
-def _multiple_linear_regression_r2(n, k=9):
+def _r2_linear_regression(n, k):
     # Computes the sample R-squared from a multiple linear regression with sample size of n.
     #
     # Args:
@@ -84,12 +68,12 @@ if __name__ == "__main__":
 
     # Simple
     time0 = time.time()
-    plot_r2_simulation(n_sizes=n_sizes, n_simulations=reps, model=_simple_linear_regression_r2)
+    plot_r2_simulation(n_sizes=n_sizes, n_simulations=reps, k=1)
     time1 = time.time()
     print(f"It took {round(time1 - time0, 2)} seconds")
 
-    # Multiple
+    # Multiple with nine independent variables
     time0 = time.time()
-    plot_r2_simulation(n_sizes=n_sizes, n_simulations=reps, model=_multiple_linear_regression_r2)
+    plot_r2_simulation(n_sizes=n_sizes, n_simulations=reps, k=9)
     time1 = time.time()
     print(f"It took {round(time1 - time0, 2)} seconds")
