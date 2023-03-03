@@ -43,7 +43,7 @@ plot_r2_simulation(n_sizes=n_sizes, n_simulations=reps, k=1)
 
 ![images/simple_regression_r2_convergence](images/simple_regression_r2_convergence.png)
 
-The blue line and orange line are the 95% quantile line and the 5% quantile line at each sample size respectively, and the dots in the middle are mean of the simulated R-squared at each sample size.
+The blue line and orange line are the 95% quantile line and the 5% quantile line at each sample size respectively, and the dots in the middle are mean of the simulated R-squared at each sample size. The confidence interval converges to the middle point at a rate of the sqaure root of the sample size, $\sqrt{n}
 
 <br />
 
